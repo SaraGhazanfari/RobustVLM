@@ -434,7 +434,8 @@ def train_one_epoch(
             eval_logs['eval/racc'] = racc_eval
             eval_logs['eval/acc'] = acc_eval
             eval_logs['eval/cos-sim'] = cos_sim_eval
-            print(f'[time] {time.time()} [eval-acc] {acc_eval:.2f} [eval-racc] {racc_eval:.2f} [eval-cos-sim] {cos_sim_eval:.3f}')
+            from datetime import datetime
+            print(f'[time] {str(datetime.now())} [eval-acc] {acc_eval:.2f} [eval-racc] {racc_eval:.2f} [eval-cos-sim] {cos_sim_eval:.3f}')
             model.train()
             del data_eval_adv, data_eval, targets_eval, embedding_adv_eval_norm, logits_eval_adv, embedding_eval_norm, logits_eval
 
