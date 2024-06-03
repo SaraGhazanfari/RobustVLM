@@ -191,8 +191,7 @@ def main(args):
 
     # Freezing model start
     for name, param in model.named_parameters():
-        if not name.startswith('visual.transformer.peft_bias'):
-            print(name)
+        if 'peft_bias' not in name:
             param.requires_grad = False
         else:
             print(name)
