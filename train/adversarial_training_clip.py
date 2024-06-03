@@ -444,6 +444,7 @@ def train_one_epoch(
                 log_str += f' [acc] {acc:.2f} [racc] {racc:.2f}'
             print(log_str)
             log_data = {
+                'time': time.time(),
                 'step': step_total,
                 'lr': lr_,
                 'loss': loss.item(),
