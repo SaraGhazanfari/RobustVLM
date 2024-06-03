@@ -430,10 +430,11 @@ def train_one_epoch(
                 # note we compute the cosine sim between clean and adv embedding,
                 # not between orig and adv embedding as for training
                 cos_sim_eval = F.cosine_similarity(embedding_adv_eval_norm, embedding_eval_norm, dim=1).mean()
+
             eval_logs['eval/racc'] = racc_eval
             eval_logs['eval/acc'] = acc_eval
             eval_logs['eval/cos-sim'] = cos_sim_eval
-            print(f'[eval-acc] {acc_eval:.2f} [eval-racc] {racc_eval:.2f} [eval-cos-sim] {cos_sim_eval:.3f}')
+            print(f'[time] {time.time()} [eval-acc] {acc_eval:.2f} [eval-racc] {racc_eval:.2f} [eval-cos-sim] {cos_sim_eval:.3f}')
             model.train()
             del data_eval_adv, data_eval, targets_eval, embedding_adv_eval_norm, logits_eval_adv, embedding_eval_norm, logits_eval
 
